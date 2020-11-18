@@ -17,6 +17,7 @@ public class PlayerBehavior : MonoBehaviour
    
 
     private Rigidbody myRigidbody;
+    private GameObject joueur;
 
     private void OnEnable()
     {
@@ -62,11 +63,16 @@ public class PlayerBehavior : MonoBehaviour
         if (myRigidbody.velocity.sqrMagnitude < maxpush)
         {
             //celle qui fonctionne mais je choisi pas la direction.
-            myRigidbody.AddTorque(direction * pushStrengh  );
+            
+           
+            myRigidbody.AddTorque(direction * pushStrengh);
+
             //celle qui devrait marcher mais t'as pas compris un truc
             //myRigidbody.AddTorque(myVector* pushStrengh);
             //la version addforceatposition de flore
 
         }
+        //print rotation info
+        //Debug.Log (joueur.transform.rotation.eulerAngles.x);
     }
 }

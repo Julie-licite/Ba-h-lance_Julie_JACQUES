@@ -17,7 +17,15 @@ public class PlayerBehavior : MonoBehaviour
    
 
     private Rigidbody myRigidbody;
-    private GameObject joueur;
+    //private GameObject joueur;
+
+    private void Start()
+    {
+        Quaternion myRotation = Quaternion.identity;
+        //print rotation info
+        // Debug.Log (joueur.transform.rotation.eulerAngles.x);
+        Debug.Log(myRotation.eulerAngles);
+    }
 
     private void OnEnable()
     {
@@ -52,6 +60,15 @@ public class PlayerBehavior : MonoBehaviour
         //myVector = Vector2.zero;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Dead")
+        {
+            Debug.Log("touche");
+        }
+            
+    }
+
     void FixedUpdate()
     {
         //celui qui marche
@@ -72,7 +89,13 @@ public class PlayerBehavior : MonoBehaviour
             //la version addforceatposition de flore
 
         }
+
+        /*
+         //ne marche pas forcement il manque un truc
+        Quaternion myRotation = Quaternion.identity;
         //print rotation info
-        //Debug.Log (joueur.transform.rotation.eulerAngles.x);
+        // Debug.Log (joueur.transform.rotation.eulerAngles.x);
+        Debug.Log(myRotation.eulerAngles);
+        */
     }
 }

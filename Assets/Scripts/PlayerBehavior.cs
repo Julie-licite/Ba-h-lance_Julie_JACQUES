@@ -18,7 +18,7 @@ public class PlayerBehavior : MonoBehaviour
 
     private Rigidbody myRigidbody;
     //private GameObject joueur;
-
+/*
     private void Start()
     {
         Quaternion myRotation = Quaternion.identity;
@@ -26,7 +26,7 @@ public class PlayerBehavior : MonoBehaviour
         // Debug.Log (joueur.transform.rotation.eulerAngles.x);
         Debug.Log(myRotation.eulerAngles);
     }
-
+*/
     private void OnEnable()
     {
         //recup la liste des inputs
@@ -67,6 +67,14 @@ public class PlayerBehavior : MonoBehaviour
             Debug.Log("touche");
         }
             
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Dead")
+        {
+            Debug.Log("toucheplus");
+        }
+
     }
 
     void FixedUpdate()

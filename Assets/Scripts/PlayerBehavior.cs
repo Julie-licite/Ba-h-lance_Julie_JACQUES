@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField] private float pushStrengh;
     [SerializeField] private float maxpush;
     [SerializeField] private float maDirection;
+    [SerializeField] UnityEvent gameOver;
+
+
+    //public static bool game
 
     private Player inputs;
     //fonctionne
@@ -65,6 +70,10 @@ public class PlayerBehavior : MonoBehaviour
         if (other.gameObject.tag == "Dead")
         {
             Debug.Log("touche");
+
+            //GameOver.gameIsOver = true;
+            gameOver.Invoke();
+            
         }
             
     }
